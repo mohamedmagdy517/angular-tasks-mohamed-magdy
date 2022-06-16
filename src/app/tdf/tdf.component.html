@@ -1,0 +1,27 @@
+<p>tdf works!</p>
+
+
+<div class="container">
+    <form #userForm="ngForm">
+        {{userForm.value|json}}
+        <br>
+        {{userModel|json}}
+        <div class="form-group">
+            <label>User Name :</label>
+            <input type="text" name="txtName" [(ngModel)]="userModel.name" ngModel class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="txtEmail" [(ngModel)]="userModel.email" ngModel class="form-control">
+        </div>
+        <div class="form-group">
+            <label>phone</label>
+            <input type="tel" name="txtPhone" [(ngModel)]="userModel.phone" ngModel class="form-control">
+        </div>
+      
+
+
+        <input type="submit" class="btn btn-success" value="SUBMIT">
+
+    </form>
+</div>

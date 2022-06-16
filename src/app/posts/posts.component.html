@@ -1,0 +1,77 @@
+<p>posts works!</p>
+
+<button type="button" class="btn btn-primary">Primary</button>
+
+
+<p>users works!</p>
+
+
+<button>  im here </button>
+ 
+<div *ngFor="let user of  posts">
+    <table>
+  <tr>
+       <td> {{posts[1].name}} </td> <br> 
+       
+  </tr>
+  </table>
+ 
+  
+  
+  <table class="table">
+   <thead>
+     <tr>
+       <th scope="col"> id </th>
+       <th scope="col"> title  </th>
+       <th scope="col">Body</th>
+       
+       
+     </tr>
+   </thead>
+   <tbody>
+      <tr>
+       <th scope="row"> {{posts[0].id}}</th>
+       <td>{{posts[0].title}}</td>
+           <td> {{posts[0].body}}</td>
+          
+     </tr> 
+
+     <tr>
+        <th scope="row"> {{posts[1].id}}</th>
+        <td>{{posts[1].title}}</td>
+            <td> {{posts[1].body}}</td>
+            
+           
+      </tr>
+
+     
+
+     
+     
+
+      
+
+      
+
+      
+    
+      
+     
+     
+   </tbody>
+  </table>
+  <div class="card">
+    <div class="card-header">
+        {{posts[0].id}}
+    </div>
+    <div class="card-header">
+        {{posts[0].title}}
+    </div>
+    <div class="card-body">
+        {{posts[1].body}}
+    </div>
+  </div>
+   </div> 
+   <app-footer> </app-footer>
+  
+

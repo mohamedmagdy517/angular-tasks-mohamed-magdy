@@ -1,0 +1,159 @@
+ <p>products works!</p>
+ <p>products works!</p> 
+ <h1 class="text-center-text">  
+
+    {{ "the store name is " +storeName}}
+</h1>
+<h1> testing </h1>
+<div  class = "text-center">
+    <img cl ass = "text-center"[src]="storeLogo" alt="">
+</div> 
+
+
+
+
+<div id="adminDiv" *ngIf="Ispurshased then thenBlock; else elseBlock" >
+
+</div>
+
+<ng-template #thenBlock >
+    <h3>  {{ " we offer an explicit discoune of " + " " +DisCount}}</h3>-->
+    
+</ng-template>
+
+
+<ng-template #elseBlock >
+
+    
+</ng-template>
+
+
+<button (click)="toggleShow()" type="checkbox" >show/hide</button>
+
+<div *ngIf="isShown" class="row container-fluid"  id="divshow" >
+<!--div content -->
+<h3>  {{ " we offer an explicit discoune of " + " " +DisCount}}</h3> 
+
+</div>
+<!--<div ng-show="myVar">stuff</div>-->
+
+ <!--hhhh-->
+ <button (click)="toggleShow()" type="checkbox" ><h1>Buy</h1></button>
+
+<div *ngIf="isShown" class="row container-fluid"  id="divshow" >
+<!--div content -->
+<div *ngFor="let one of  categoryList">
+  <table>
+<tr>
+     <td>{{categoryList[1].ID}}</td> <br> 
+     <td>{{categoryList[1].Name}}</td>  <br>
+         <td>{{categoryList[0].ID}}</td>  <br>
+             <td>{{categoryList[0].Name}}</td>  <br>
+
+</tr>
+</table>
+</div>
+
+
+<table class="table">
+ <thead>
+   <tr>
+     <th scope="col"> id </th>
+     <th scope="col">product</th>
+     <th scope="col">Quantity</th>
+     <th scope="col">images</th>
+     
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <th scope="row"> {{productList[0].ID}}</th>
+     <td>{{productList[0].Name}}</td>
+         <td> {{productList[0].quantity}}</td>
+         <td> {{productList[0].img}}</td>
+   </tr>
+   <tr>
+     <th scope="row"> {{productList[1].ID}}</th>
+     <td>{{productList[1].Name}}</td>
+         <td> {{productList[1].quantity}}</td>
+         <td> {{productList[1].img}}</td>
+   </tr>
+   
+ </tbody>
+</table>
+
+
+</div>   <!--eng of loop-->
+<div ng-show="myVar">
+ <h3>  {{ "Thanks for purchasing from our Store"+storeName}}</h3>
+</div> 
+<h3>  {{ "using upper case"+storeName|uppercase}}</h3>
+<h3>  {{ "using lower case"+storeName|lowercase}}</h3>
+
+
+
+ 
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Dropdown button
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+    </div>
+  </div>
+
+      
+  <h3>Choose Your Favorite Cricket Player</h3>
+<select >
+    <option value="default">----</option>
+    <option *ngFor="let item of categoryList">
+      {{categoryList[0].ID}}
+    </option>
+    <option *ngFor="let item of categoryList">
+      {{categoryList[0].Name}}
+     </option>
+     <option *ngFor="let item of categoryList">
+      {{categoryList[1].ID}}
+    </option>
+    <option *ngFor="let item of categoryList" value="3">
+      {{categoryList[1].Name}} 
+     </option>
+</select> 
+
+
+<div>
+
+
+  <input type="text" [(ngModel)]="storeName" >
+  {{storeName}}
+
+
+<!-- test button to show and hide-->
+  <button (click)="toggleShow()" type="checkbox" >show/hide</button>
+
+<div *ngIf="isShown" class="row container-fluid"  id="divshow" >
+<!--div content -->
+<h3>Choose Your Favorite Cricket Player</h3>
+<select >
+    <option value="default">----</option>
+    <option *ngFor="let item of categoryList">
+      {{categoryList[0].ID}}
+    </option>
+    <option *ngFor="let item of categoryList">
+      {{categoryList[0].Name}}
+     </option>
+     <option *ngFor="let item of categoryList">
+      {{categoryList[1].ID}}
+    </option>
+    <option *ngFor="let item of categoryList" value="3">
+      {{categoryList[1].Name}} 
+     </option>
+</select> 
+
+</div>
+
+
+  
+  

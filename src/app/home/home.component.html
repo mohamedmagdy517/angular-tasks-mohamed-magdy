@@ -1,0 +1,142 @@
+<button type="button" class="btn btn-primary">Primary</button>
+
+
+<!-- <app-header></app-header> -->
+
+<div> 
+
+<h1>Registration with first Way  </h1>
+</div>
+
+<div class="container">
+    <form #userForm="ngForm" novalidate (ngSubmit)="onSubmit()">
+        {{userForm.value|json}}
+        <br>
+        {{userModel|json}}
+        <div class="form-group">
+            <label>User Name :</label>
+            <input type="text" name="txtName" [class.is-invalid]="name.invalid &&name.touched" required  [(ngModel)]="userModel.name" #name="ngModel" class="form-control">
+            <small class="text-danger" *ngIf="name.invalid &&name.touched">Name is required</small>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="txtEmail" [(ngModel)]="userModel.email" #email="ngModel"  class="form-control">
+        </div>
+        <div class="form-group">
+            <label>phone</label>
+            <input type="tel" pattern="^\d{11}$" required [class.is-invalid]="phone.invalid && phone.touched" name="txtPhone" [(ngModel)]="userModel.phone"  #phone="ngModel" class="form-control">
+           <div *ngIf="phone.errors&&phone.touched">
+            <small class="text-danger" *ngIf="phone.errors['required']">Phone is Required</small>
+            <small class="text-danger" *ngIf="phone.errors['pattern']">Phone number must be 11 digits</small>
+           </div> 
+            
+        </div>
+        <div class="form-group">
+            <label>password</label>
+            <input type="tel" pattern="^\d{8}$" required [class.is-invalid]="password.invalid && password.touched" name="password" [(ngModel)]="userModel.password"  #password="ngModel" class="form-control">
+           <div *ngIf="password.errors&&password.touched">
+            <small class="text-danger" *ngIf="password.errors['required']">Phone is Required</small>
+            <small class="text-danger" *ngIf="password.errors['pattern']">Phone number must be 8 digits</small>
+           </div> 
+            
+        </div>
+         <!-- <div class="form-group">
+            <label>confirmpassword</label>
+            <input type="tel" pattern="^\d{8}$" required [class.is-invalid]="confirmpassword.invalid && confirmpassword.touched" name="txtPhone" [(ngModel)]="confirmpassword"  #confirmpassword="ngModel" class="form-control">
+           <div *ngIf="confirmpassword.errors&&confirmpassword.touched">
+            <small class="text-danger" *ngIf="confirmpassword.errors['required']">Phone is Required</small>
+            <small class="text-danger" *ngIf="confirmpassword.errors['pattern']">Phone number must be 11 digits</small>
+           </div> 
+            
+        </div>  -->
+        <div class="form-group">
+            <label>confirm password</label>
+            <input type="tel" pattern="^\d{8}$" required [class.is-invalid]="confirmpassword.invalid && confirmpassword.touched" name="confirmpassword"   #confirmpassword="ngModel" ngModel class="form-control">
+           <div *ngIf="confirmpassword.errors&&confirmpassword?.touched">
+            <small class="text-danger" *ngIf="confirmpassword.errors['required']">Phone is Required</small>
+            <small class="text-danger" *ngIf="confirmpassword.errors['pattern']">Phone number must be 8 digits</small>
+           </div> 
+           <small *ngIf= "confirmpassword.value!=password.value&&confirmpassword?.touched"> 
+            thats wrong  password didnt match 
+        </small>
+            
+        </div>
+      
+
+     
+
+        <input type="submit" class="btn btn-success" [disabled]="userForm.form.invalid" value="SUBMIT">
+
+    </form>
+</div>
+
+
+<h1> registration with reactive form </h1>
+
+
+
+<div class="container">
+    <form #userForm="ngForm" novalidate (ngSubmit)="onSubmit()">
+        {{userForm.value|json}}
+        <br>
+        {{userModel|json}}
+        <div class="form-group">
+            <label>User Name :</label>
+            <input type="text" name="txtName" [class.is-invalid]="name.invalid &&name.touched" required  [(ngModel)]="userModel.name" #name="ngModel" class="form-control">
+            <small class="text-danger" *ngIf="name.invalid &&name.touched">Name is required</small>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="txtEmail" [(ngModel)]="userModel.email" #email="ngModel"  class="form-control">
+        </div>
+        <div class="form-group">
+            <label>phone</label>
+            <input type="tel" pattern="^\d{11}$" required [class.is-invalid]="phone.invalid && phone.touched" name="txtPhone" [(ngModel)]="userModel.phone"  #phone="ngModel" class="form-control">
+           <div *ngIf="phone.errors&&phone.touched">
+            <small class="text-danger" *ngIf="phone.errors['required']">Phone is Required</small>
+            <small class="text-danger" *ngIf="phone.errors['pattern']">Phone number must be 11 digits</small>
+           </div> 
+            
+        </div>
+        <div class="form-group">
+            <label>password</label>
+            <input type="tel" pattern="^\d{8}$" required [class.is-invalid]="password.invalid && password.touched" name="password" [(ngModel)]="userModel.password"  #password="ngModel" class="form-control">
+           <div *ngIf="password.errors&&password.touched">
+            <small class="text-danger" *ngIf="password.errors['required']">Phone is Required</small>
+            <small class="text-danger" *ngIf="password.errors['pattern']">Phone number must be 8 digits</small>
+           </div> 
+            
+        </div>
+         <!-- <div class="form-group">
+            <label>confirmpassword</label>
+            <input type="tel" pattern="^\d{8}$" required [class.is-invalid]="confirmpassword.invalid && confirmpassword.touched" name="txtPhone" [(ngModel)]="confirmpassword"  #confirmpassword="ngModel" class="form-control">
+           <div *ngIf="confirmpassword.errors&&confirmpassword.touched">
+            <small class="text-danger" *ngIf="confirmpassword.errors['required']">Phone is Required</small>
+            <small class="text-danger" *ngIf="confirmpassword.errors['pattern']">Phone number must be 11 digits</small>
+           </div> 
+            
+        </div>  -->
+        <div class="form-group">
+            <label>confirm password</label>
+            <input type="tel" pattern="^\d{8}$" required [class.is-invalid]="confirmpassword.invalid && confirmpassword.touched" name="confirmpassword"   #confirmpassword="ngModel" ngModel class="form-control">
+           <div *ngIf="confirmpassword.errors&&confirmpassword?.touched">
+            <small class="text-danger" *ngIf="confirmpassword.errors['required']">Phone is Required</small>
+            <small class="text-danger" *ngIf="confirmpassword.errors['pattern']">Phone number must be 8 digits</small>
+           </div> 
+           <small *ngIf= "confirmpassword.value!=password.value&&confirmpassword?.touched"> 
+            thats wrong  password didnt match 
+        </small>
+            
+        </div>
+      
+
+     
+
+        <input type="submit" class="btn btn-success" [disabled]="userForm.form.invalid" value="SUBMIT">
+
+    </form>
+</div>
+
+
+
+<app-footer></app-footer>
